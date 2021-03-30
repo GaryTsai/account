@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "6a037c4284734f39ea77efa655c898b5",
+    "revision": "8ba91c9f08332248161eed25cf037ec0",
     "url": "/account/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/account/static/css/3.775bf402.chunk.css"
   },
   {
-    "revision": "7e808f5b8cd603558a07",
+    "revision": "a89e2bd3e2b6ff35fd15",
     "url": "/account/static/css/main.ffaab1a8.chunk.css"
   },
   {
@@ -40,8 +40,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/account/static/js/6.5db40c7f.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "7e808f5b8cd603558a07",
-    "url": "/account/static/js/main.14e02f41.chunk.js"
+    "revision": "a89e2bd3e2b6ff35fd15",
+    "url": "/account/static/js/main.286b94ce.chunk.js"
   },
   {
     "revision": "993d7b734145ff71006b",
@@ -70,10 +70,6 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "09bef442095c25281e61c0d7c5e3e91e",
     "url": "/account/static/media/entertainment.09bef442.png"
-  },
-  {
-    "revision": "2ee0e722e251c2d877a4c03dd390e5e3",
-    "url": "/account/static/media/facebook-icon.2ee0e722.png"
   },
   {
     "revision": "41bf360aacdaf2d4c1b46a2bd3b89138",
