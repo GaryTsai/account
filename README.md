@@ -8,10 +8,11 @@
 快速登入 使用Firebase 所提供的登入機制:
   - (2)  Facebook (圖形 API v4.0 已於 Nov 02, 2021 will be deprecated on)
   - (3)  Google
-  - 
+
 ### Firebase 資料庫(Realtime DataBase)
 - 有關FireBase的登入SDK，可至以下網址操作:
   - refer: https://firebase.google.com/
+ 
 ### 資料格式(JSON):
 - 目前分為兩種表格account與expense:
 ```javascripts=
@@ -58,5 +59,5 @@
     - 每日支出顯示-長條圖(每日花費)
       - 日花費250以上顯示橘色，以下則顯示藍色
       - 花費1000以上顯示紅色
-部屬至GitHub gh-pagespages
+#### 部屬至GitHub gh-pagespages
 
