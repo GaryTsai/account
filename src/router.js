@@ -28,7 +28,7 @@ const RootRouter = ({ fetchItems }) => {
   if (!account) {
     window.localStorage.setItem("pageRoute", "login");
     return (
-      <Router basename={"/account"}>
+      <Router basename={"/"}>
         <div className="App" style={{ height: "100vh" }}>
           <Route
             exact
@@ -42,7 +42,7 @@ const RootRouter = ({ fetchItems }) => {
     );
   } else {
     return (
-      <Router basename={"/account"}>
+      <Router basename={"/"}>
         <div className="App" style={{ height: "100vh", overflowY: "scroll", position: "relative"}}>
           <Loading />
           <Layout>
