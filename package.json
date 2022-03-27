@@ -2,7 +2,7 @@
   "name": "account",
   "version": "0.2.0",
   "private": true,
-  "homepage": "https://garytsai.github.io/account",
+  "homepage": "https://garytsai.github.io/account/",
   "dependencies": {
     "@amcharts/amcharts4": "^4.9.26",
     "@material-ui/core": "^4.12.3",
