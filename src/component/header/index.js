@@ -12,7 +12,7 @@ export default class Header extends Component {
   logout = () => {
     utils.deleteAllCookies();
     eventEmitter.dispatch("accountLogOut", account.toString());
-    window.location.replace(window.location.origin + "/login");
+    window.location.replace(window.location.origin + "/account/login");
     localStorage.removeItem("pageRoute");
   };
 
