@@ -35,7 +35,7 @@ const RootRouter = ({ fetchItems }) => {
             path="account/login"
             render={() => <Login account={account} />}
           />
-          <Redirect to="/login" />
+          <Redirect to="account/login" />
           <Powered />
         </div>
       </Router>
