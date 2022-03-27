@@ -23,7 +23,7 @@ export default class Header extends Component {
       <div style={styles.header}>
         {
           <div style={{ position: "relative" }}>
-            <Link to="/account/total">
+            <Link to="/total">
           {pageRoute !== "total" && (
             <img
               style={styles.headerIcon}
@@ -37,7 +37,7 @@ export default class Header extends Component {
             />
           )}
         </Link>
-        <Link to="/account/home">
+        <Link to="/home">
           {pageRoute !== "home" && (
             <img
               style={styles.headerIcon}
@@ -51,7 +51,7 @@ export default class Header extends Component {
             />
           )}
         </Link>
-        <Link to="/account/chart">
+        <Link to="/chart">
           {pageRoute !== "chart" && (
             <img
               style={{ ...styles.headerIcon, backgroundColor:"white", borderRadius: '50%'}}
