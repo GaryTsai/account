@@ -28,29 +28,29 @@ const RootRouter = ({ fetchItems }) => {
   if (!account) {
     window.localStorage.setItem("pageRoute", "login");
     return (
-      <Router basename={"/"}>
+      <Router basename={"/account"}>
         <div className="App" style={{ height: "100vh" }}>
           <Route
             exact
-            path="/account/login"
+            path="/login"
             render={() => <Login account={account} />}
           />
-          <Redirect to="/account/login" />
+          <Redirect to="/login" />
           <Powered />
         </div>
       </Router>
     );
   } else {
     return (
-      <Router basename={"/"}>
+      <Router basename={"/account"}>
         <div className="App" style={{ height: "100vh", overflowY: "scroll", position: "relative"}}>
           <Loading />
           <Layout>
             <Switch>
-              <Route exact path="/account/home" component={InputContent} />
-              <Route exact path="/account/total" component={AnnualExpense} />
-              <Route exact path="/account/chart" component={DailyExpense} />
-              <Redirect to="/account/home" />
+              <Route exact path="/home" component={InputContent} />
+              <Route exact path="/total" component={AnnualExpense} />
+              <Route exact path="/chart" component={DailyExpense} />
+              <Redirect to="/home" />
             </Switch>
             <Powered />
           </Layout>
