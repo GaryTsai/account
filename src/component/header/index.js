@@ -4,7 +4,8 @@ import styles from "./styles";
 import eventEmitter from "../../eventTracking/eventEmitter";
 import Time from "./time";
 import utils from "../../utils/cookie";
-
+import {createBrowserHistory} from 'history';
+let history = createBrowserHistory();
 const account = utils.getCookie("account");
 
 export default class Header extends Component {
@@ -12,7 +13,8 @@ export default class Header extends Component {
   logout = () => {
     utils.deleteAllCookies();
     eventEmitter.dispatch("accountLogOut", account.toString());
-    window.location.replace(window.location.origin + "/account/login");
+    history.push('/account/login');
+    window.location.reload();
     localStorage.removeItem("pageRoute");
   };
 
@@ -31,6 +33,7 @@ export default class Header extends Component {
               title="annual expense page"
               onClick={() => {
                 window.localStorage.setItem("pageRoute", "total");
+                history.push('/account/total');
                 this.setState({ route: "total" });
               }}
               src={require("../../assets/img/cost-list.png")}
@@ -45,6 +48,7 @@ export default class Header extends Component {
               title="record page"
               onClick={() => {
                 window.localStorage.setItem("pageRoute", "home");
+                history.push('/account/home');
                 this.setState({ route: "home" });
               }}
               src={require("../../assets/img/record.png")}

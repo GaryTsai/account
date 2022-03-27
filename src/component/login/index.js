@@ -8,7 +8,8 @@ import FaceBookSignIn from "./facebookLogin";
 import AlertForRegister from "./alertForRegister";
 import LoginTab from "./loginTab";
 import cookie from "../../utils/cookie";
-
+import {createBrowserHistory} from 'history';
+let history = createBrowserHistory();
 const initialState = {
   email: "",
   password: "",
@@ -66,7 +67,8 @@ export default class Login extends Component {
           cookie.setCookie('account', user.uid, 15)
           eventEmitter.dispatch("accountLogIn", user.uid.toString());
           localStorage.setItem("pageRoute", "home");
-          window.location.replace(window.location.origin + "/account/home");
+          history.push('/account/home');
+          window.location.reload();
         }
       })
       .catch((error) => {
@@ -105,7 +107,7 @@ export default class Login extends Component {
             );
             console.log("Register successfully");
             localStorage.setItem("pageRoute", "home");
-            window.location.replace(window.location.origin + "/account/home");
+            history.push('/account/home');
           });
       })
       .catch((error) => {
@@ -167,7 +169,7 @@ export default class Login extends Component {
               "accountRegister",
               result.user.uid.toString()
             );
-            window.location.replace(window.location.origin + "/account/home");
+            history.push('/account/home');
             console.log("Google email register successfully");
           })
           .catch((err) => {
