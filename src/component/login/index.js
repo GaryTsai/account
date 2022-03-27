@@ -66,7 +66,7 @@ export default class Login extends Component {
           cookie.setCookie('account', user.uid, 15)
           eventEmitter.dispatch("accountLogIn", user.uid.toString());
           localStorage.setItem("pageRoute", "home");
-          window.location.replace(window.location.origin + "/account/home");
+          window.location.replace(window.location.origin + "/account");
         }
       })
       .catch((error) => {
@@ -105,7 +105,7 @@ export default class Login extends Component {
             );
             console.log("Register successfully");
             localStorage.setItem("pageRoute", "home");
-            window.location.replace(window.location.origin + "/account/home");
+            window.location.replace(window.location.origin + "/account");
           });
       })
       .catch((error) => {
@@ -167,7 +167,7 @@ export default class Login extends Component {
               "accountRegister",
               result.user.uid.toString()
             );
-            window.location.replace(window.location.origin + "/account/home");
+            window.location.replace(window.location.origin + "/account");
             console.log("Google email register successfully");
           })
           .catch((err) => {
