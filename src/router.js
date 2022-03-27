@@ -28,14 +28,14 @@ const RootRouter = ({ fetchItems }) => {
   if (!account) {
     window.localStorage.setItem("pageRoute", "login");
     return (
-      <Router>
+      <Router >
         <div className="App" style={{ height: "100vh" }}>
           <Route
             exact
-            path="/login"
+            path="/account/login"
             render={() => <Login account={account} />}
           />
-          <Redirect to="/login" />
+          <Redirect to="/account/login" />
           <Powered />
         </div>
       </Router>
@@ -47,10 +47,10 @@ const RootRouter = ({ fetchItems }) => {
           <Loading />
           <Layout>
             <Switch>
-              <Route exact path="/home" component={InputContent} />
-              <Route exact path="/total" component={AnnualExpense} />
-              <Route exact path="/chart" component={DailyExpense} />
-              <Redirect to="/home" />
+              <Route exact path="/account/home" component={InputContent} />
+              <Route exact path="/account/total" component={AnnualExpense} />
+              <Route exact path="/account/chart" component={DailyExpense} />
+              <Redirect to="/account/home" />
             </Switch>
             <Powered />
           </Layout>
