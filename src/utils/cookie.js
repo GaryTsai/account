@@ -20,7 +20,6 @@ const utils = {
   },
   deleteAllCookies: () => {
     var cookies = document.cookie.split(";");
-
     for (var i = 0; i < cookies.length; i++) {
       var cookie = cookies[i];
       var eqPos = cookie.indexOf("=");

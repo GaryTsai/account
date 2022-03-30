@@ -53,7 +53,11 @@ export default class InputContent extends Component {
         <div style={styles.header}>
           {<div style={{position: 'relative'}}>
             {/* {this.getImage(route)}
-            {<div style={{position: 'relative'}}><Link to='/account/login'><img style={{...styles.logoutImg, right:'0px'}} alt="" onClick={()=>this.props.logOut()} src={require('../../assets/img/logout.png')}/></Link>
+            {<div style={{position: 'relative'}}><img style={{...styles.logoutImg, right:'0px'}} alt="" onClick={()=>{
+              history.push('/account/login');
+              window.location.reload();
+              this.props.logOut()
+              }} src={require('../../assets/img/logout.png')}/>
             </div>} */}
           </div>}
           <div style={styles.ctime}>現在時間: {currentTime}</div>
