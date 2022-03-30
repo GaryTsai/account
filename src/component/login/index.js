@@ -66,7 +66,8 @@ export default class Login extends Component {
           cookie.setCookie('account', user.uid, 15)
           eventEmitter.dispatch("accountLogIn", user.uid.toString());
           localStorage.setItem("pageRoute", "home");
-          window.location.replace(window.location.origin + "/home");
+          this.props.changePageRoute('home')
+          // window.location.replace(window.location.origin + "/home");
         }
       })
       .catch((error) => {

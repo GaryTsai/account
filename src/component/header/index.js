@@ -1,29 +1,30 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import styles from "./styles";
 import eventEmitter from "../../eventTracking/eventEmitter";
 import Time from "./time";
 import utils from "../../utils/cookie";
 
-const account = utils.getCookie("account");
+const Header = (props)=> {
 
-export default class Header extends Component {
+  const navigate = useNavigate();
 
-  logout = () => {
+  const logout = () => {
+    const account = utils.getCookie("account");
     utils.deleteAllCookies();
-    eventEmitter.dispatch("accountLogOut", account.toString());
-    window.location.replace(window.location.origin + "/login");
+    account && eventEmitter.dispatch("accountLogOut", account.toString());
+    props.changePageRoute('login');
     localStorage.removeItem("pageRoute");
   };
 
-  render() {
-    var  pageRoute = window.localStorage.getItem("pageRoute")
-    if (!account) return <div></div>;
+  var  pageRoute = window.localStorage.getItem("pageRoute")
+  const account = utils.getCookie("account");
+  if (!account) return <div></div>;
     return (
       <div style={styles.header}>
         {
           <div style={{ position: "relative" }}>
-            <Link to="/total">
+        <Link to="/total">
           {pageRoute !== "total" && (
             <img
               style={styles.headerIcon}
@@ -31,7 +32,6 @@ export default class Header extends Component {
               title="annual expense page"
               onClick={() => {
                 window.localStorage.setItem("pageRoute", "total");
-                this.setState({ route: "total" });
               }}
               src={require("../../assets/img/cost-list.png")}
             />
@@ -45,7 +45,6 @@ export default class Header extends Component {
               title="record page"
               onClick={() => {
                 window.localStorage.setItem("pageRoute", "home");
-                this.setState({ route: "home" });
               }}
               src={require("../../assets/img/record.png")}
             />
@@ -59,7 +58,6 @@ export default class Header extends Component {
               title="expense chart page"
               onClick={() => {
                 window.localStorage.setItem("pageRoute", "chart");
-                this.setState({ route: "chart" });
               }}
               src={require("../../assets/img/chart.png")}
             />
@@ -69,9 +67,7 @@ export default class Header extends Component {
         <img
           style={{ ...styles.headerIcon, position: "absolute", right: "0" }}
           alt=""
-          onClick={() => {
-            this.logout();
-          }}
+          onClick={() => logout()}
           src={require("../../assets/img/logout.png")}
         />
           </div>
@@ -79,4 +75,6 @@ export default class Header extends Component {
       </div>
     );
   }
-}
+
+
+export default Header 

@@ -13,9 +13,8 @@ import {
 import firebase from "./../utils/firebaseConfig";
 import cookie from "./../utils/cookie"
 
-const account = cookie.getCookie("account");
-
 export const fetchItems = () => {
+  const account = cookie.getCookie("account");
   let getDataRef = firebase.database().ref(`/expense/${account}`);
   return (dispatch, getState) => {
     dispatch({ type: FETCH_ITEMS_REQUEST, loading: true });
@@ -30,6 +29,7 @@ export const fetchItems = () => {
 };
 
 export const fetchAccountBudget = () => {
+  const account = cookie.getCookie("account");
   let getBudgetRef = firebase.database().ref(`/account/${account}`);
   return (dispatch, getState) => {
     getBudgetRef.on("value", (snapshot) => {
@@ -43,6 +43,7 @@ export const fetchAccountBudget = () => {
 };
 
 export const addNewItem = (itemInfo) => {
+  const account = cookie.getCookie("account");
   let postRef = firebase.database().ref(`/expense/${account}`);
   return (dispatch, getState) => {
     postRef
@@ -58,6 +59,7 @@ export const addNewItem = (itemInfo) => {
 };
 
 export const deleteItem = (timestamp) => {
+  const account = cookie.getCookie("account");
   let delRef = firebase.database().ref(`/expense/${account}`);
   return (dispatch, getState) => {
     delRef
@@ -74,6 +76,7 @@ export const deleteItem = (timestamp) => {
 };
 
 export const setMonthBudget = (monthBudget) => {
+  const account = cookie.getCookie("account");
   let setBudgetRef = firebase.database().ref(`/account/`);
   return (dispatch, getState) => {
     setBudgetRef
@@ -97,6 +100,7 @@ export const updateDate = (date) => {
 };
 
 export const getAccounts = () => {
+  const account = cookie.getCookie("account");
   let getAccountCategory = firebase.database().ref(`account/${account}`);
   return (dispatch, getState) => {
     getAccountCategory.on("value", (snapshot) => {
@@ -112,6 +116,7 @@ export const getAccounts = () => {
 };
 
 export const addNewAccount = (accountList, newAccount) => {
+  const account = cookie.getCookie("account");
   let setAccountCategory = firebase.database().ref(`account/${account}`);
   return (dispatch, getState) => {
     accountList.push(newAccount);
@@ -121,6 +126,7 @@ export const addNewAccount = (accountList, newAccount) => {
 };
 
 export const deleteAccount = (accountList) => {
+  const account = cookie.getCookie("account");
   let setAccountCategory = firebase.database().ref(`account/${account}`);
   return (dispatch, getState) => {
     setAccountCategory.update({ accountCategory: accountList });
@@ -129,6 +135,7 @@ export const deleteAccount = (accountList) => {
 };
 
 export const updateItem = (itemInfo, timestamp) => {
+  const account = cookie.getCookie("account");
   let updateRef = firebase.database().ref(`expense/${account}/${timestamp}`);
   return (dispatch, getState) => {
     updateRef.update({

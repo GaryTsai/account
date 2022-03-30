@@ -1,13 +1,12 @@
 import React, { Fragment } from "react";
-import Header from "./../header";
 
 const Layout = (props) => {
   return (
     // 用<div>Fragment 不會在DOM裡面增加節點
     <Fragment>
-      <div className="App-header">
-        <Header />
-      </div>
+      {/* <div className="App-header">
+        <Header/>
+      </div> */}
       <div
         style={{
           width: "calc(100% - 4px)",

@@ -52,9 +52,9 @@ export default class InputContent extends Component {
       <div>
         <div style={styles.header}>
           {<div style={{position: 'relative'}}>
-            {this.getImage(route)}
+            {/* {this.getImage(route)}
             {<div style={{position: 'relative'}}><Link to='/account/login'><img style={{...styles.logoutImg, right:'0px'}} alt="" onClick={()=>this.props.logOut()} src={require('../../assets/img/logout.png')}/></Link>
-            </div>}
+            </div>} */}
           </div>}
           <div style={styles.ctime}>現在時間: {currentTime}</div>
         </div>
