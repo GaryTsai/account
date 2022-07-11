@@ -10,7 +10,8 @@ const initialState = {
   monthItems: [],
   annualMonth: [],
   monthDetailClick: false,
-  toggleIndex: []
+  toggleIndex: [],
+  dateArray: []
 };
 class AnnualExpense extends Component {
   constructor(props) {
@@ -62,6 +63,7 @@ class AnnualExpense extends Component {
     if (prevProps.allitems === this.props.allitems) return;
     else {
       this.annualMonthCost();
+      this.detailOfMonth(this.state.dateArray);
     }
   }
 
@@ -85,6 +87,7 @@ class AnnualExpense extends Component {
       monthItems: array,
       annualMonth: dateArray,
       monthDetailClick: true,
+      dateArray: dateArray
     });
   };
   

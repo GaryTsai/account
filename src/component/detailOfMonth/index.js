@@ -1,7 +1,10 @@
 import React from 'react';
 import styles from "./styles";
 import utils from "../../utils/dateFormat";
-
+import {
+  deleteItem,
+} from "../../actions";
+import { connect } from "react-redux";
 
 const dailyCost = (cost_data) =>{
   if(!cost_data) return 
@@ -13,7 +16,7 @@ const dailyCost = (cost_data) =>{
   return total_cost;
 };
 
-const DetailOfMonth = ({monthItems , annualMonth}) =>{
+const DetailOfMonth = ({monthItems , annualMonth, deleteItem}) =>{
   return (
     <div style={{display: 'inline-block', textAlign: 'left', width: '100%'}}>
       <li style={{listStyleType: 'none', ...styles.styleOfYearMonth}}>{utils.format(annualMonth[0], annualMonth[1])}</li>
@@ -25,7 +28,7 @@ const DetailOfMonth = ({monthItems , annualMonth}) =>{
               <span>{monthItems[c][item].itemClass + ':'}</span>
               <span>{(monthItems[c][item].itemContent ? (monthItems[c][item].itemContent + '') : '')}</span>
               <span>{monthItems[c][item].itemValue + '$NT'}</span>
-              <span><img onClick={() => this.deleteItem(monthItems[c][item].timestamp)} style={styles.deleteIcon}
+              <span><img onClick={() => deleteItem(monthItems[c][item].timestamp)} style={styles.deleteIcon}
                          alt="delete item" src={require('../../assets/img/item-delete.png')}/></span>
             </li>
           ))}
@@ -36,4 +39,4 @@ const DetailOfMonth = ({monthItems , annualMonth}) =>{
   )
 }
 
-export default DetailOfMonth
+export default connect(null, {deleteItem})(DetailOfMonth);
