@@ -63,7 +63,7 @@ class AnnualExpense extends Component {
     if (prevProps.allitems === this.props.allitems) return;
     else {
       this.annualMonthCost();
-      this.detailOfMonth(this.state.dateArray);
+      this.state.dateArray.length !== 0 && this.detailOfMonth(this.state.dateArray);
     }
   }
 
@@ -93,7 +93,7 @@ class AnnualExpense extends Component {
   
   handleToggleIndex = idx =>{
     const { toggleIndex } = this.state;
-    console.log(toggleIndex);
+
     if(toggleIndex.includes(idx)){
       toggleIndex.splice(toggleIndex.indexOf(idx), 1);
     }else{
