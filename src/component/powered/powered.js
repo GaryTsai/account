@@ -20,7 +20,8 @@ export default class Powered extends Component {
     const { year } = this.state;
     const PoweredContainer = styled.div`
       bottom: 0px;
-      position: fixed;
+      position: relative;
+      left: -2px;
       width: 100%;
       margin: auto;
     `;
@@ -36,7 +37,9 @@ export default class Powered extends Component {
       position: fixed;
       height: 44px;
       line-height: 44px;
-      border-bottom: 2px solid rgb(0, 185, 156);
+      border-style: solid;
+      border-color: rgb(0,185,156);
+      border-width: 0 2px 2px 2px;
     `;
     return (
       <PoweredContainer>

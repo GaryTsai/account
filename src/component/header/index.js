@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useEffect, Component } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import styles from "./styles";
 import eventEmitter from "../../eventTracking/eventEmitter";
@@ -17,7 +17,8 @@ const Header = (props)=> {
     localStorage.removeItem("pageRoute");
   };
 
-  var  pageRoute = window.localStorage.getItem("pageRoute")
+  var  pageRoute  = window.localStorage.getItem("pageRoute")
+
   const account = utils.getCookie("account");
   if (!account) return <div></div>;
     return (
