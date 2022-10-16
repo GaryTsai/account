@@ -160,6 +160,7 @@ class InputContent extends Component {
       ((monthOfBudget - this.monthOfCost()) / monthOfBudget) *
       100
     ).toFixed(0);
+    console.log('-------------');
     return (
       <div>
         <div style={styles.mainExpense}>
