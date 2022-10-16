@@ -50,7 +50,7 @@ jobs:
         run: |
           npm install
           npm run build
-          
+
       # Ignore the set-env
       - name: Set Actions Allow Unsecure Commands
         run: |
