@@ -6,6 +6,7 @@ import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import CategoryTable from "./categoryTable";
 import AccountTable from "./accountTable";
 import Content from "./contents";
+import _ from "lodash";
 import DatePickers from "../../utils/datePicker";
 import {
   setMonthBudget,
@@ -101,8 +102,9 @@ class InputContent extends Component {
   };
 
   inputBudget = (budget) => {
+    var debounced = _.debounce(()=>this.props.setMonthBudget(budget), 200);
     if (!isNaN(budget)) {
-      return this.props.setMonthBudget(budget);
+      return debounced();
     }
     return;
   };
