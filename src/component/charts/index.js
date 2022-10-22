@@ -276,7 +276,23 @@ class DailyExpense extends Component {
     valueAxis.renderer.minWidth = 25;
     valueAxis.min = 0;
     valueAxis.cursorTooltipEnabled = false;
-
+    const averageValue = () => {
+      let accumulator = 0
+      chart.data.map((item) => accumulator += item.dailyExpense)
+      return Math.floor(accumulator/chart.data.length)
+    }
+    const average = averageValue()
+    var range = valueAxis.axisRanges.create();
+    range.value = average;
+    range.grid.stroke = am4core.color("#eb2a2a");
+    range.grid.strokeWidth = 2;
+    range.grid.strokeOpacity = 1;
+    range.label.inside = true;
+    range.label.text = `${average} $`;
+    range.label.fill = range.grid.stroke;
+    range.label.align = "right";
+    range.grid.above = true;
+    range.label.verticalCenter = "left";
     // Create series
     var series = chart.series.push(new am4charts.ColumnSeries());
     series.sequencedInterpolation = true;
@@ -451,6 +467,13 @@ class DailyExpense extends Component {
             }}
           >
             <styles.ChartTab
+              key={"bar-chart"}
+              activeStatus={this.state.type === "dailyExpense"}
+              onClick={() => this.selectChart("dailyExpense")}
+            >
+              每日支出圖(圖表分析)
+            </styles.ChartTab>
+            <styles.ChartTab
               key={"pie-chart"}
               activeStatus={this.state.type === "categoryExpense"}
               onClick={() => this.selectChart("categoryExpense")}
@@ -463,13 +486,6 @@ class DailyExpense extends Component {
               onClick={() => this.selectChart("accountExpense")}
             >
               支出類別比(圖表分析)
-            </styles.ChartTab>
-            <styles.ChartTab
-              key={"bar-chart"}
-              activeStatus={this.state.type === "dailyExpense"}
-              onClick={() => this.selectChart("dailyExpense")}
-            >
-              每日支出圖(圖表分析)
             </styles.ChartTab>
           </div>
           <DatePicker

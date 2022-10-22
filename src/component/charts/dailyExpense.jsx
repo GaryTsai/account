@@ -274,11 +274,6 @@ class DailyExpense extends Component {
     categoryAxis.renderer.minGridDistance = 60;
     categoryAxis.tooltip.disabled = true;
 
-    var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
-    valueAxis.renderer.minWidth = 25;
-    valueAxis.min = 0;
-    valueAxis.cursorTooltipEnabled = false;
-
     // Create series
     var series = chart.series.push(new am4charts.ColumnSeries());
     series.sequencedInterpolation = true;
@@ -299,13 +294,13 @@ class DailyExpense extends Component {
     hoverState.properties.cornerRadiusTopRight = 0;
     hoverState.properties.fillOpacity = 1;
 
-    series.columns.template.adapter.add("fill", function (fill, target) {
-      if (chart.data[target.dataItem.index].dailyExpense < 250)
-        return chart.colors.getIndex(1);
-      if (chart.data[target.dataItem.index].dailyExpense < 1000)
-        return chart.colors.getIndex(11);
-      else return chart.colors.getIndex(10);
-    });
+    // series.columns.template.adapter.add("fill", function (fill, target) {
+    //   if (chart.data[target.dataItem.index].dailyExpense < 250)
+    //     return chart.colors.getIndex(1);
+    //   if (chart.data[target.dataItem.index].dailyExpense < 1000)
+    //     return chart.colors.getIndex(11);
+    //   else return chart.colors.getIndex(10);
+    // });
 
     var paretoValueAxis = chart.yAxes.push(new am4charts.ValueAxis());
     paretoValueAxis.renderer.opposite = true;
@@ -317,17 +312,28 @@ class DailyExpense extends Component {
     paretoValueAxis.numberFormatter.numberFormat = "#'%'";
     paretoValueAxis.cursorTooltipEnabled = false;
 
-    var paretoSeries = chart.series.push(new am4charts.LineSeries());
-    paretoSeries.dataFields.valueY = "pareto";
-    paretoSeries.dataFields.categoryX = "date";
-    paretoSeries.yAxis = paretoValueAxis;
-    paretoSeries.tooltipText = "pareto: {valueY.formatNumber('#.0')}%[/]";
-    paretoSeries.bullets.push(new am4charts.CircleBullet());
-    paretoSeries.strokeWidth = 2;
-    paretoSeries.stroke = new am4core.InterfaceColorSet().getFor(
-      "alternativeBackground"
-    );
-    paretoSeries.strokeOpacity = 0.5;
+    var range = paretoValueAxis.axisRanges.create();
+    range.value = 1000;
+    range.grid.stroke = am4core.color("#396478");
+    range.grid.strokeWidth = 2;
+    range.grid.strokeOpacity = 1;
+    range.label.inside = true;
+    range.label.text = "Goal";
+    range.label.fill = range.grid.stroke;
+    //range.label.align = "right";
+    range.label.verticalCenter = "bottom";
+
+    // var paretoSeries = chart.series.push(new am4charts.LineSeries());
+    // paretoSeries.dataFields.valueY = "pareto";
+    // paretoSeries.dataFields.categoryX = "date";
+    // paretoSeries.yAxis = paretoValueAxis;
+    // paretoSeries.tooltipText = "pareto: {valueY.formatNumber('#.0')}%[/]";
+    // paretoSeries.bullets.push(new am4charts.CircleBullet());
+    // paretoSeries.strokeWidth = 2;
+    // paretoSeries.stroke = new am4core.InterfaceColorSet().getFor(
+    //   "alternativeBackground"
+    // );
+    // paretoSeries.strokeOpacity = 0.5;
 
     // Cursor
     chart.cursor = new am4charts.XYCursor();
