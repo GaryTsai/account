@@ -19,7 +19,7 @@ const initialState = {
   dailyExpenseOfMonth: "",
   year: new Date().getFullYear(),
   time: new Date(),
-  type: "categoryExpense",
+  type: "dailyExpense",
 };
 
 const monthMap = {
