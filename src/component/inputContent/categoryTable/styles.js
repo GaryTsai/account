@@ -38,6 +38,9 @@ export default {
     background-color: rgb(249 137 129);
     padding: 2% 0%;
     left: 0;
+    border-radius: 20px;
+    border: solid 2px #d94141;
+    box-sizing: border-box;
     cursor: pointer;
     &:hover {
       background-color: rgb(236 57 44);

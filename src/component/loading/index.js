@@ -9,7 +9,7 @@ const loading = ({isLoading}) => {
       <img
         alt=""
         style={styles.loadingImg}
-        src={require("./../../assets/img/loading.gif")}
+        src={require("./../../assets/img/loading.png")}
       />
       </div>}
     </Fragment>

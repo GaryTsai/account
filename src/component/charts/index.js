@@ -279,7 +279,8 @@ class DailyExpense extends Component {
     const averageValue = () => {
       let accumulator = 0
       chart.data.map((item) => accumulator += item.dailyExpense)
-      return Math.floor(accumulator/chart.data.length)
+      const length = chart.data.filter((expense)=> expense.dailyExpense > 0).length
+      return Math.floor(accumulator/length)
     }
     const average = averageValue()
     var range = valueAxis.axisRanges.create();
